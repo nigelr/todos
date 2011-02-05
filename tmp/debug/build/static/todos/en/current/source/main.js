@@ -28,5 +28,7 @@ Todos.main = function main() {
 } ;
 
 function main() { Todos.main(); }
-var tasks = Todos.store.find(Todos.Task);
+var query = SC.Query.local(Todos.Task, { orderBy: 'isDone,description' });
+var tasks  = Todos.store.find(query);
+
 Todos.tasksController.set('content', tasks);; if ((typeof SC !== 'undefined') && SC && SC.scriptDidLoad) SC.scriptDidLoad('todos');

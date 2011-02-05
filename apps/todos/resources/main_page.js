@@ -8,7 +8,7 @@
 Todos.mainPage = SC.Page.design({
 
   // The main pane is made visible on screen as soon as your app is loaded.
-  // Add childViews to this pane for views to display immediately on page 
+  // Add childViews to this pane for views to display immediately on page
   // load.
 //  mainPane: SC.MainPane.design({
 //    childViews: 'labelView'.w(),
@@ -39,7 +39,10 @@ Todos.mainPage = SC.Page.design({
 
       addButton: SC.ButtonView.design({
         layout: { centerY: 0, height: 24, right: 12, width: 100 },
-        title:  "Add Task"
+        title:  "Add Task",
+        target: "Todos.tasksController",
+        action: "addTask"
+
       })
     }),
 
@@ -52,8 +55,9 @@ Todos.mainPage = SC.Page.design({
         selectionBinding: 'Todos.tasksController.selection',
         contentValueKey: "description",
         contentCheckboxKey: "isDone",
-        rowHeight: 40
-
+        rowHeight: 40,
+        canEditContent: YES,
+        canDeleteContent: YES
       })
     }),
 
@@ -69,7 +73,7 @@ Todos.mainPage = SC.Page.design({
         valueBinding: "Todos.tasksController.summary"
       })
     })
-  }) 
+  })
 
 })
-;
+    ;
